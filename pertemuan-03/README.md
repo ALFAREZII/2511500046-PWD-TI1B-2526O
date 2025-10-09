@@ -11,4 +11,5 @@ Hari ini, Kamis 9 Oktober 2025, saja belajar:
  <li>membuat styling untuk selector ID #about elemen h2</li>
   <li>membuat styling untuk selector ID #about elemen p</li>
   <li>membuat styling untuk selector ID #about elemen strong</li>
+  <li>membuat styling untuk selector ID #about mode responsif (mobile)</li>
  </ol>
