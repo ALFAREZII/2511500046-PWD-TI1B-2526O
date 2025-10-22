@@ -13,4 +13,5 @@
  <li> Styling footer <li>
  <li> Styling Navigasi <li>
  <li> Styling header mobile <li>
+ <li> Styling Navigasi Mobile <li>
  <ol>
