@@ -6,4 +6,5 @@
  Hari ini. kamis 16 oktober 2024, saya mempelajari
  <ol>
  <li> copy-paste isi index.html (pertemuan-03) ke index.html (pertemuan-04) </li>
+ <li> Ganti internal CSS ke External CSS <li>
  <ol>
