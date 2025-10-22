@@ -11,4 +11,5 @@
  <li> Styling Section Home <li>
  <li> Styling Header <li>
  <li> Styling footer <li>
+ <li> Styling Navigasi <li>
  <ol>
