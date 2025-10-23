@@ -72,8 +72,8 @@ header li a {
 .menu-toggle {
   display: block;
   position: absolute;
-  left: auto;
-  top: 10px;
+  left: 28px;
+  top: 30px;
 }
 
 nav {
