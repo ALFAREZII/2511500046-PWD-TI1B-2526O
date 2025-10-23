@@ -60,7 +60,7 @@ header li a {
 }
 
 .menu-toggle {
-  display: none;
+  /*display: none;*/
   background: none;
   border: none;
   color: #fff;
