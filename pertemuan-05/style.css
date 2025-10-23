@@ -68,7 +68,7 @@ header li a {
   cursor: pointer;
 }
 
-@media (max-width: 100px) {
+@media (max-width: 500px) {
 .menu-toggle {
   display: block;
   position: absolute;
