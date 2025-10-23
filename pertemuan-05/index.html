@@ -79,6 +79,43 @@
         font-size: 20px;
         line-height: 1.2;
         }
+
+        #contact h2 {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #contact strong {
+            text-align: left;
+            padding-right: 0;
+            margin-bottom: 2px;
+        }
+
+        form label {
+            display: block;
+        }
+
+        input {
+            width: 100px;
+            margin: 2px;
+            border: none;
+            outline: none;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            padding: 8px;
+            width: 252px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #003366;
     }
 
     #contact {
@@ -140,53 +177,13 @@
         background: #bc3145;
         color: #ffffff;
     }
-
-    @media (max-width: 600px) {
-        #contact h2 {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        #contact strong {
-            text-align: left;
-            padding-right: 0;
-            margin-bottom: 2px;
-        }
-
-        form label {
-            display: block;
-        }
-
-        input {
-            width: 100px;
-            margin: 2px;
-            border: none;
-            outline: none;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid gray;
-        }
-
-        button {
-            border: none;
-            outline: none;
-            padding: 8px;
-            width: 252px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-            border-radius: 5px;
-            background-color: #003366;
-        }
     }
-
 </style>
 
 <body>
     <header>
         <h1>Ini Header</h1>
-        <button class="menu-toggle" id="menutoggle" aria-label="toggle-Navigation">
+        <button class="menu-toggle" id="menutoggle" aria-label="toggle Navigation">
             &#9776;
         </button>
         <nav>
@@ -227,9 +224,10 @@
                 <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukan email" required
                     autocomplete="email">
 
-                <label for="txtPesan">Pesan:</label>
+                <label for="txtPesan"><span>Pesan Anda:<span>
                 <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
-
+                <small id="charCount">0/200 karakter</small>
+                </label>
                 <button type="submit">Kirim</button>
                 <button type="reset">Batal</button>
             </form>
