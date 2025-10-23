@@ -9,4 +9,5 @@ Nama: Muhammad Alfarezi
  <li> class menu-toggle <li>
  <li> class menu-toggle mobile <li>
  <li> styling nav movbile <li>
+ <li> Membuat script.js <li>
  <ol>
