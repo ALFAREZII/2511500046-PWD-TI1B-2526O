@@ -8,4 +8,5 @@ Nama: Muhammad Alfarezi
  <li> tombol hamburger </li>
  <li> class menu-toggle <li>
  <li> class menu-toggle mobile <li>
+ <li> styling nav movbile <li>
  <ol>
