@@ -68,7 +68,7 @@ header li a {
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 100px) {
 .menu-toggle {
   display: block;
   position: absolute;
@@ -79,7 +79,7 @@ header li a {
 nav {
   display: none;
   flex-direction: column;
-  background-color: #003366;
+  background: #003366;
   width: 100%;
   padding: 5px 0;
 }
