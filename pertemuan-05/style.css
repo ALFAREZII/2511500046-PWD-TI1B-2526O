@@ -70,8 +70,7 @@ nav {
 }
 
 nav.active {
-  display:flex;
-}
+  display: flex;
 }
 
 #home,
