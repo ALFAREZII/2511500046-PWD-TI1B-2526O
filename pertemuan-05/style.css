@@ -44,6 +44,15 @@ font-size: 20px;
 line-height: 1.2;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
 #home,
  #about,
   #contact {
