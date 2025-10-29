@@ -6,7 +6,7 @@ document.getElementById("menuToggle").addEventListener("click", function () {
   } else {
     this.textContent = "\u2630";
   }
-});
+})
 
 document.querySelector("form").addEventListener("submit", function (e) {
   const nama = document.getElementById("txtNama");
@@ -79,8 +79,8 @@ window.addEventListener("resize", () => {
   document.querySelectorAll(".error-msg").forEach((small) => {
     const target = document.getElementById(small.dataset.forId);
     if (target) alignErrorMessage(small, target);
-  });
-});
+  })
+})
 
 document.addEventListener("DOMContentLoaded", function () {
   const homeSection = document.getElementById("home");
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
       counter.style.fontSize = "14px";
       counter.style.marginTop = "4px";
     }
-    applyResponsiveLayout();
+    applyResponsiveLayout()
   }
   function applyResponsiveLayout() {
     const label = document.querySelector('label[for="txtPesan"]');
@@ -154,9 +154,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   setupCharCountLayout();
   window.addEventListener("resize", applyResponsiveLayout);
-});
+})
 
 document.getElementById("txtPesan").addEventListener("input", function () {
   const panjang = this.value.length;
-  document.getElementById("charCount").textContent = panjang + "0/200 karakter";
-});
+  document.getElementById("charCount").textContent = panjang + "/200 karakter";
+})
