@@ -158,5 +158,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById("txtPesan").addEventListener("input", function () {
   const panjang = this.value.length;
-  document.getElementById("charCount").textContent = panjang + "/200 karakter";
+  document.getElementById("charCount").textContent = panjang + "0/200 karakter";
 });
