@@ -1,5 +1,11 @@
 document.getElementById("menuToggle").addEventListener("click", function () {
-document.querySelector("nav").classList.toggle("active");
+const nav = document.querySelector("nav");
+nav.classList.toggle("active");
+if (nav.classList.contains("active")) {
+this.textContent = "\u2716";
+} else {
+this.textContent = "\u2630";
+}
 });
 document.querySelector("form").addEventListener("submit", function (e) {
 const nama = document.getElementById("txtNama");
@@ -73,4 +79,15 @@ document.querySelectorAll(".error-msg").forEach(small => {
 const target = document.getElementById(small.dataset.forId);
 if (target) alignErrorMessage(small, target);
 });
+});
+document.addEventListener("DOMContentLoaded", function () {
+const homeSection = document.getElementById("home");
+const ucapan = document.createElement("p");
+ucapan.textContent = "Halo! Selamat datang di halaman saya!";
+homeSection.appendChild(ucapan);
+});
+
+document.getElementById("txtPesan").addEventListener("input", function () {
+const panjang = this.value.length;
+document.getElementById("charCount").textContent = panjang + "/200 karakter";
 });
