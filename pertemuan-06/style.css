@@ -150,6 +150,13 @@ header li a:active {
     cursor: pointer;
 }
 
+footer {
+background: #222;
+color: #aaa;
+text-align: center;
+padding: 10px;
+}
+
 @media (max-width: 600px) {
     .menu-toggle {
         display: block;
