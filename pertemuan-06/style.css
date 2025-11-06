@@ -86,7 +86,6 @@ header li a:active {
 
 #about strong,
 #contact label>span {
-    min-width: 10px;
     color: #003366;
     font-weight: 600;
     text-align: right;
