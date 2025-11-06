@@ -86,7 +86,6 @@
       echo "halo dunia!<br>";
       echo "nama saya Rezi!";
       ?>
-      <p>Ini contoh paragraf HTML.</p>
     </section>
 
     <section id="about">
