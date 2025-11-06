@@ -121,7 +121,7 @@
 
     <section id="ipk">
       <?php
-      $namaMatkul1 = "Algoritma dan Struktur Data";
+      $namaMatkul1 = "Pemograman Web";
       $namaMatkul2 = "";
       $namaMatkul3 = "";
       $namaMatkul4 = "";
