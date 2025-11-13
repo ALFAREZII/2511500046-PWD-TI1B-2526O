@@ -93,6 +93,10 @@ endif;
         <label for="txtEmail"><span>Nama Adik:</span>
           <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
         </label>
+
+         <button type="submit">Kirim</button>
+        <button type="reset">Batal</button>
+      </form>
 </section>
 
     <section id="about">

@@ -98,7 +98,8 @@ header li a:active {
 }
 
 #about strong,
-#contact label>span {
+#contact label>span
+#entry label>span {
   min-width: 180px;
   color: #003366;
   font-weight: 600;
@@ -109,7 +110,8 @@ header li a:active {
 
 #contact input,
 #contact textarea
-#entry {
+#entry input
+#entry textarea {
   flex: 1;
   border: 1px solid #ccc;
   border-radius: 6px;
