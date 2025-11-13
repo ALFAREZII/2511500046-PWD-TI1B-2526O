@@ -64,10 +64,33 @@ endif;
         <label for="txtEmail"><span>Tempat Lahir:</span>
           <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
         </label>
+        
+          <label for="txtEmail"><span>Tanggal Lahir:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
 
-        <label for="txtPesan"><span>Tempat Tanggal:</span>
-          <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
-          <small id="charCount">0/200 karakter</small>
+          <label for="txtEmail"><span>Hobi:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+
+          <label for="txtEmail"><span>Pasangan:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+
+         <label for="txtEmail"><span>Pekerjaan:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+
+         <label for="txtEmail"><span>Nama Orang Tua:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+
+        <label for="txtEmail"><span>Nama Kakak:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+
+        <label for="txtEmail"><span>Nama Adik:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
         </label>
 
     <section id="about">
