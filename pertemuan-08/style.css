@@ -202,7 +202,8 @@ footer {
   flex-shrink: 0;
 }
 
-#entry textarea {
+#entry textarea
+#entry input {
   flex: 1;
   border: 1px solid #ccc;
   border-radius: 6px;
