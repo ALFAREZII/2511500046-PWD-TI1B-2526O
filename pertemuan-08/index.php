@@ -38,7 +38,7 @@ endif;
         <li><a href="#home">Beranda</a></li>
         <li><a href="#about">Tentang</a></li>
         <li><a href="#contact">Kontak</a></li>
-        <li><a href="#EntryDataMahasiswa">Entry Data Mahasiswa</a></li>
+        <li><a href="#entry">Entry Data Mahasiswa</a></li>
       </ul>
     </nav>
   </header>
@@ -52,7 +52,7 @@ endif;
       ?>
       <p>Ini contoh paragraf HTML.</p>
     </section>
-    <section id= "EntryDataMahasiswa">
+    <section id= "entery">
        <h2>Entry Data Mahasiswa</h2>
          <label for="txtNama"><span>NIM:</span>
           <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
