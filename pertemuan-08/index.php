@@ -38,7 +38,6 @@ endif;
         <li><a href="#home">Beranda</a></li>
         <li><a href="#about">Tentang</a></li>
         <li><a href="#contact">Kontak</a></li>
-        <li><A href="#Entry Data Mahasiswa">Entry Data Mahasiswa</a></li>
       </ul>
     </nav>
   </header>
@@ -54,22 +53,22 @@ endif;
     </section>
     <section id= "Entry Data Mahasiswa">
        <h2>Entry Data Mahasiswa</h2>
-        <?php
-      $nim = 2511500010;
-      $NIM = '2511500046';
-      $nama = "Muhammad Alfarezi";
-      $Nama = 'Muhammad Alfarezi';
-      $tempat = "PangkalPinang";
-      ?>
-       <form>
-      <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
-      <p><strong>Tanggal Lahir:</strong> 04 Agustus 2007</p>
-      <p><strong>Hobi:</strong> Bermain Game, Aragement musik , Bermain Instrument &#127926;</p>
-      <p><strong>Pasangan:</strong> Belum ada karena kurang sigma &hearts;</p>
-      <p><strong>Pekerjaan:</strong> tidak ada</p>
-      <p><strong>Nama Orang Tua:</strong> Ema Asmalinar dan Saanis Djanan</p>
-      <p><strong>Nama Kakak:</strong> Tidak ada</p>
-      <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
+         <label for="txtNama"><span>NIM:</span>
+          <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
+        </label>
+
+        <label for="txtEmail"><span>Nama Lengkap:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+
+        <label for="txtEmail"><span>Tempat Lahir:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+
+        <label for="txtPesan"><span>Tempat Tanggal:</span>
+          <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
+          <small id="charCount">0/200 karakter</small>
+        </label>
 
     <section id="about">
       <?php
@@ -90,16 +89,6 @@ endif;
         echo $Nama;
         ?> &#128526;
       </p>
-      <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
-      <p><strong>Tanggal Lahir:</strong> 04 Agustus 2007</p>
-      <p><strong>Hobi:</strong> Bermain Game, Aragement musik , Bermain Instrument &#127926;</p>
-      <p><strong>Pasangan:</strong> Belum ada karena kurang sigma &hearts;</p>
-      <p><strong>Pekerjaan:</strong> tidak ada</p>
-      <p><strong>Nama Orang Tua:</strong> Ema Asmalinar dan Saanis Djanan</p>
-      <p><strong>Nama Kakak:</strong> Tidak ada</p>
-      <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
-    </section>
-    
     <section id= "Entry Data Mahasiswa">
       <h2>Kontak Kami</h2>
       <form action="proses.php" method="POST">
