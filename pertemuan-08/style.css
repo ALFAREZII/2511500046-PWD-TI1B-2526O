@@ -214,6 +214,41 @@ footer {
   box-sizing: border-box;
 }
 
+#entry button {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  margin-right: 8px;
+}
+
+#entry button[type="submit"] {
+  background-color: #003366;
+  color: #fff;
+  font-weight: 600;
+}
+
+#entry button[type="reset"] {
+  background-color: #b4b4b4;
+  color: #272727;
+  font-weight: 500;
+}
+
+#entry button[type="submit"]:hover {
+  background-color: #0379ee;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#entry button[type="reset"]:hover {
+  background-color: #cccccc;
+  transform: translateY(-1px);
+}
+
 @media (max-width: 600px) {
   .menu-toggle {
     display: block;
