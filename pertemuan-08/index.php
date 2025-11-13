@@ -52,6 +52,13 @@ endif;
       <p>Ini contoh paragraf HTML.</p>
     </section>
     <section id= "Entry Data Mahasiswa">
+        <?php
+      $nim = 2511500010;
+      $NIM = '2511500046';
+      $nama = "Muhammad Alfarezi";
+      $Nama = 'Muhammad Alfarezi';
+      $tempat = "PangkalPinang";
+      ?>
        <form>
       <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
       <p><strong>Tanggal Lahir:</strong> 04 Agustus 2007</p>
