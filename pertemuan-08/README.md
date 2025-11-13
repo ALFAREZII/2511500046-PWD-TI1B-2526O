@@ -10,4 +10,5 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
 <ol>
   <li>Merubah semua data ke data mahasiwa UTS pertemuan-08</li>
   <li>Menambahkan Section Entry Dataa Mahasiswa<li>
+  <li>Menambahkan Styling dan lain" untuk EntrydataMahasiswa<li>
 </ol>
