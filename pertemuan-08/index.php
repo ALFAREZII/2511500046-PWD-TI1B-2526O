@@ -112,6 +112,16 @@ endif;
         echo $Nama;
         ?> &#128526;
       </p>
+      <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
+      <p><strong>Tanggal Lahir:</strong> 4 Agustus 2007</p>
+      <p><strong>Hobi:</strong> Bermain Game , Aragement Musik , Bermain Instrument &#127926;</p>
+      <p><strong>Pasangan:</strong> Belum ada karena belum sigma &hearts;</p>
+      <p><strong>Pekerjaan:</strong> Tidak ada</p>
+      <p><strong>Nama Orang Tua:</strong> Ema Asmalinar dan Saanis Djanan</p>
+      <p><strong>Nama Kakak:</strong> Tidak Ada</p>
+      <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
+    </section>
+
     <section id= "Entry Data Mahasiswa">
       <h2>Kontak Kami</h2>
       <form action="proses.php" method="POST">
