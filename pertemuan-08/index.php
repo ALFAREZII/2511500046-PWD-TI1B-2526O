@@ -52,6 +52,16 @@ endif;
       <p>Ini contoh paragraf HTML.</p>
     </section>
     <section id= "Entry Data Mahasiswa">
+       <form>
+      <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
+      <p><strong>Tanggal Lahir:</strong> 04 Agustus 2007</p>
+      <p><strong>Hobi:</strong> Bermain Game, Aragement musik , Bermain Instrument &#127926;</p>
+      <p><strong>Pasangan:</strong> Belum ada karena kurang sigma &hearts;</p>
+      <p><strong>Pekerjaan:</strong> tidak ada</p>
+      <p><strong>Nama Orang Tua:</strong> Ema Asmalinar dan Saanis Djanan</p>
+      <p><strong>Nama Kakak:</strong> Tidak ada</p>
+      <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
+
     <section id="about">
       <?php
       $nim = 2511500010;
@@ -82,15 +92,6 @@ endif;
     </section>
     
     <section id= "Entry Data Mahasiswa">
-      <form>
-      <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
-      <p><strong>Tanggal Lahir:</strong> 04 Agustus 2007</p>
-      <p><strong>Hobi:</strong> Bermain Game, Aragement musik , Bermain Instrument &#127926;</p>
-      <p><strong>Pasangan:</strong> Belum ada karena kurang sigma &hearts;</p>
-      <p><strong>Pekerjaan:</strong> tidak ada</p>
-      <p><strong>Nama Orang Tua:</strong> Ema Asmalinar dan Saanis Djanan</p>
-      <p><strong>Nama Kakak:</strong> Tidak ada</p>
-      <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
 
     <section id="contact">
       <h2>Kontak Kami</h2>
