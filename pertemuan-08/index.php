@@ -55,43 +55,43 @@ endif;
     <section id="entry">
        <h2>Entry Data Mahasiswa</h2>
          <label for="txtNama"><span>NIM:</span>
-          <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan NIM" required autocomplete="name">
+          <input type="text" id="txtNIM" name="txtNIM" placeholder="Masukkan NIM" required autocomplete="name">
         </label>
 
-        <label for="txtEmail"><span>Nama Lengkap:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Nama Lengkap" required autocomplete="email">
+        <label for="text"><span>Nama Lengkap:</span>
+          <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan Nama Lengkap" required autocomplete="email">
         </label>
 
-        <label for="txtEmail"><span>Tempat Lahir:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Tempat Lahir" required autocomplete="email">
+        <label for="text"><span>Tempat Lahir:</span>
+          <input type="text" id="txtTempatLahir" name="txtTempatLahir" placeholder="Masukkan Tempat Lahir" required autocomplete="email">
         </label>
         
-          <label for="txtEmail"><span>Tanggal Lahir:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Tanggal Lahir" required autocomplete="email">
+          <label for="text"><span>Tanggal Lahir:</span>
+          <input type="text" id="txtTanggalLahir" name="txtTanggalLahir" placeholder="Masukkan Tanggal Lahir" required autocomplete="email">
         </label>
 
-          <label for="txtEmail"><span>Hobi:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Hobi" required autocomplete="email">
+          <label for="text"><span>Hobi:</span>
+          <input type="text" id="txtHobi" name="txtHobi" placeholder="Masukkan Hobi" required autocomplete="email">
         </label>
 
-          <label for="txtEmail"><span>Pasangan:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Pasangan" required autocomplete="email">
+          <label for="text"><span>Pasangan:</span>
+          <input type="text" id="txtPasangan" name="txtPasangan" placeholder="Masukkan Pasangan" required autocomplete="email">
         </label>
 
-         <label for="txtEmail"><span>Pekerjaan:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Pekerjaan" required autocomplete="email">
+         <label for="text"><span>Pekerjaan:</span>
+          <input type="text" id="txtPekerjaan" name="txtPekerjaan" placeholder="Masukkan Pekerjaan" required autocomplete="email">
         </label>
 
-         <label for="txtEmail"><span>Nama Orang Tua:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Nama Orang Tua" required autocomplete="email">
+         <label for="text"><span>Nama Orang Tua:</span>
+          <input type="text" id="txtNamaortu" name="txtNamaortu" placeholder="Masukkan Nama Orang Tua" required autocomplete="email">
         </label>
 
-        <label for="txtEmail"><span>Nama Kakak:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Nama Kakak" required autocomplete="email">
+        <label for="text"><span>Nama Kakak:</span>
+          <input type="text" id="txtNamaKakak" name="txtNamaKakak" placeholder="Masukkan Nama Kakak" required autocomplete="email">
         </label>
 
-        <label for="txtEmail"><span>Nama Adik:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Nama Adik" required autocomplete="email">
+        <label for="text"><span>Nama Adik:</span>
+          <input type="text" id="txtNamaAdik" name="txtNamaAdik" placeholder="Masukkan Nama Adik" required autocomplete="email">
         </label>
 
          <button type="submit">Kirim</button>
@@ -127,7 +127,7 @@ endif;
       <p><strong>Nama Kakak:</strong> Tidak Ada</p>
       <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
     </section>
-    
+
     <section id="contact">
       <h2>Kontak Kami</h2>
       <form action="proses.php" method="POST">
