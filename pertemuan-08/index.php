@@ -52,7 +52,7 @@ endif;
       ?>
       <p>Ini contoh paragraf HTML.</p>
     </section>
-    <section id= "Entry Data Mahasiswa">
+    <section id= "EntryDataMahasiswa">
        <h2>Entry Data Mahasiswa</h2>
          <label for="txtNama"><span>NIM:</span>
           <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
