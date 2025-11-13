@@ -38,7 +38,7 @@ endif;
         <li><a href="#home">Beranda</a></li>
         <li><a href="#about">Tentang</a></li>
         <li><a href="#contact">Kontak</a></li>
-        <li><a href="#EntryDataMahasiswa">Entry Data Mahasiswa</a></li>
+        <li><a href="#EntryDataMahasiswa"></a></li>
       </ul>
     </nav>
   </header>
