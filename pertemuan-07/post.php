@@ -387,7 +387,7 @@
       </section>
     </main>
 
-    <footer><p>&copy; 2025 Muhammad Arkan Ramadhan [2511500056]</p></footer>
+    <footer><p>&copy; 2025 Muhammad Alfarezi [2511500046]</p></footer>
     <script src="script.js"></script>
   </body>
 </html>
