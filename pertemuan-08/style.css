@@ -58,6 +58,14 @@ header li a:active {
   border-radius: 6px;
   transition: all 0.3s ease;
 }
+#about:target~header nav a[href="Entry Data Mahasiswa"],
+#contact:target~header nav a[href="Entry Data Mahasiswa"] {
+  background: #fff;
+  color: #003366;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
 
 #home,
 #about,
