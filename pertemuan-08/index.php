@@ -93,6 +93,7 @@ endif;
         <label for="txtEmail"><span>Nama Adik:</span>
           <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
         </label>
+</section>
 
     <section id="about">
       <?php
