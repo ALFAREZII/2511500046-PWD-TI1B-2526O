@@ -51,7 +51,7 @@ endif;
       ?>
       <p>Ini contoh paragraf HTML.</p>
     </section>
-
+    <section id= "Entry Data Mahasiswa">
     <section id="about">
       <?php
       $nim = 2511500010;
@@ -80,7 +80,7 @@ endif;
       <p><strong>Nama Kakak:</strong> Antonius Setiawan</p>
       <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
     </section>
-
+    <section id= "Entry Data Mahasiswa">
     <section id="contact">
       <h2>Kontak Kami</h2>
       <form action="proses.php" method="POST">
