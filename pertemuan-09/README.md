@@ -7,4 +7,5 @@
   <li>Menghapus dan Merubah di index.php<li>
   <li>Menambahkan code di section index.php<li>
   <li>Penambahan Fungsi.php<li>
+  <li>Menyelesaikan latihan 1-2<li>
 </ol>
