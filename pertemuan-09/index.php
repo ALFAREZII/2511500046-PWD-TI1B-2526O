@@ -128,6 +128,7 @@ $fieldConfig = [
 
     <section id="contact">
       <h2>Kontak Kami</h2>
+      <?= tampilkanKontak($fieldConfig, $biodata) ?>
       <form action="proses.php" method="POST">
 
         <label for="txtNama"><span>Nama:</span>
