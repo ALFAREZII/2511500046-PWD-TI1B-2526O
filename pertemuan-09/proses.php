@@ -8,8 +8,7 @@ $_SESSION["sesemail"] = $sesemail;
 $_SESSION["sespesan"] = $sespesan;
 
 foreach ($dataBiodata as $k => $v) {
-    echo "<p><strong>$k</strong>: $v </p>"
-}
+    echo "<p><strong>$k</strong>: $v </p>" }
 
 $_SESSION["biodata"] = $arrBiodata
 header("location: index.php#about")
