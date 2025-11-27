@@ -20,17 +20,6 @@ $arrBiodata = [
 "adik" => $_POST["txtNmAdik"] ?? ""
 ];
 
-$txtNim = $_POST["txtNim"];
-$txtNmLengkap = $_POST["txtNmLengkap"];
-$txtT4Lhr = $_POST["txtT4Lhr"];
-$txtTglLhr = $_POST["txtTglLhr"];
-$txtHobi = $_POST["txtHobi"];
-$txtPasangan = $_POST["txtPasangan"];
-$txtKerja = $_POST["txtKerja"];
-$txtNmOrtu = $_POST["txtNmOrtu"];
-$txtNmKakak = $_POST["txtNmKakak"];
-$txtNmAdik = $_POST["txtNmAdik"];
-
 $_SESSION["biodata"] = $arrBiodata;
 header("location: index.php");
 ?>
