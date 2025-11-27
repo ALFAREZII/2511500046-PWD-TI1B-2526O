@@ -134,12 +134,12 @@ $fieldConfig - [
     <?php foreach ($fieldConfig as $kunci => $metadata): ?>
         <p>
             <strong><?= $metadata["label"] ?></strong>
-            <?= htmlspecialchars(string: $biodata[$kunci] ?? "") ?>
+            <?= htmlspecialchars($biodata[$kunci] ?? "") ?>
             <?= $metadata["suffix"] ?>
         </p>
     <?php endforeach; ?>
     </section>
-    
+
     <section id="contact">
       <h2>Kontak Kami</h2>
       <form action="proses.php" method="POST">
