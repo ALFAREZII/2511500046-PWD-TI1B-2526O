@@ -97,7 +97,7 @@ endif;
       <h2>Selamat Datang</h2>
       <?php
       echo "halo dunia!<br>";
-      echo "nama saya hadi";
+      echo "nama saya Muhammad Alfarezi";
       ?>
       <p>Ini contoh paragraf HTML.</p>
     </section>
