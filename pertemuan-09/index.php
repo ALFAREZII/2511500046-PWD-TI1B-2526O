@@ -120,6 +120,14 @@ $fieldConfig = [
     "kakak"    => ["label" => "Nama Kakak:", "suffix" => ""],
     "adik"     => ["label" => "Nama Adik:", "suffix" => ""],
 ];
+
+$kontakdata = $_SESSION["kontak"] ?? [];
+$kontakconfig = [
+    "nama" => $POST["txtNama"] ?? "",
+    "email" => $POST["txtEmail"] ?? "",
+    "pesan" => $POST["txtPesan"] ?? "",
+];
+
 ?>
     <section id="about">
       <h2>Tentang Saya</h2>
@@ -128,7 +136,6 @@ $fieldConfig = [
 
     <section id="contact">
       <h2>Kontak Kami</h2>
-      <?= tampilkanKontak($fieldConfig, $biodata) ?>
       <form action="proses.php" method="POST">
 
         <label for="txtNama"><span>Nama:</span>
