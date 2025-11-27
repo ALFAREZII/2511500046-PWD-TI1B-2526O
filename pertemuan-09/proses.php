@@ -7,12 +7,6 @@ $_SESSION["sesnama"] = $sesnama;
 $_SESSION["sesemail"] = $sesemail;
 $_SESSION["sespesan"] = $sespesan;
 
-foreach ($dataBiodata as $k => $v) {
-    echo "<p><strong>$k</strong>: $v </p>" }
-
-$_SESSION["biodata"] = $arrBiodata
-header("location: index.php#about")
-
 $arrBiodata = [
 "nim" => $_POST["txtNim"] ?? "",
 "nama" => $_POST["txtNmLengkap"] ?? "",
