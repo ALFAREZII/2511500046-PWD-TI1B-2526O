@@ -123,9 +123,9 @@ $fieldConfig - [
       <h2>Tentang Saya</h2>
       <?php foreach ($fieldConfig as $kunci => $metadata): ?>
     <p>
-        <strong><?= $metadata['label'] ?></strong>
+        <strong><?= $metadata["label"] ?></strong>
         <?= htmlspecialchars(string: $biodata[$kunci] ?? "") ?>
-        <?= $metadata['suffix'] ?>
+        <?= $metadata["suffix"] ?>
     </p>
 <?php endforeach; ?>
 
