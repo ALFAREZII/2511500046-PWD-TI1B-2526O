@@ -21,5 +21,3 @@ $q = mysqli_query($conn, $sql);
     </tr>
 <?php endwhile; ?>
 </table>
-
-<label>pesan: <strong><php? echo $sespesan; ?></strong><label>
