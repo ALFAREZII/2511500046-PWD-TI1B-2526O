@@ -10,3 +10,4 @@
   <li>Penambahan Read_inc.php dan modif<li>
   <li>Pembaruan code di index.php barisan 146<li>
   <li>Mengapus bagian 133-141<li>
+  <li>Export DATABASE<li>
