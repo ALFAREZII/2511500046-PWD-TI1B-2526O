@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'koneksi.php';
-require_once 'fungsi.php'
+require_once 'fungsi.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
