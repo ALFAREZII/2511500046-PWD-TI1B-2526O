@@ -70,4 +70,4 @@ if (mysqli_stmt_execute($stmt)) {
 #tutup statement
 mysqli_stmt_close($stmt);
 
-$arrContact = []
+$arrContact = [];
