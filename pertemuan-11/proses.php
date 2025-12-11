@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $arrContact = [
-  "nama" => $_POST["txtNama"] ?? "",
-  "email" => $_POST["txtEmail"] ?? "",
-  "pesan" => $_POST["txtPesan"] ?? ""
+  $nama = $_POST["txtNama"] ?? "",
+  $email = $_POST["txtEmail"] ?? "",
+  $pesan = $_POST["txtPesan"] ?? ""
 ];
 
 $errors = [];
