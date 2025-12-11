@@ -1,5 +1,11 @@
 <?php
 session_start();
+require_once 'koneksi.php'
+
+function redirect_ke($url) {
+    header("Location: " . $url);
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $_SESSION['flash_error'] = 'Akses tidak valid.';
