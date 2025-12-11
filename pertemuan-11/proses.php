@@ -46,9 +46,11 @@ if (!empty($errors)) {
 $sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql);
 
-if (!$stmt) {
-    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
-    redirect_ke('index.php#contact');
+if ( ! $stmt ) {
+    // Tambahkan detail error dari koneksi untuk debugging
+    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal). Detail SQL: ' . $conn->error;
+    header('Location: index.php#contact');
+    exit;
 }
 
 mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
