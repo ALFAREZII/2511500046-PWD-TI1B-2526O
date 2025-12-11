@@ -18,17 +18,17 @@ $arrContact = [
 $errors = [];
 
 if ($nama === '') {
-    $errors[] = 'Nama wajib diisi.';
+    $errors[] = 'nama wajib diisi.';
 }
 
 if ($email === '') {
-    $errors[] = 'Email wajib diisi.';
+    $errors[] = 'email wajib diisi.';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = 'Format e-mail tidak valid.';
+    $errors[] = 'format e-mail tidak valid.';
 }
 
 if ($pesan === '') {
-    $errors[] = 'Pesan wajib diisi.';
+    $errors[] = 'pesan wajib diisi.';
 }
 
 if (!empty($errors)) {
