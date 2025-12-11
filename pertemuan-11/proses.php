@@ -71,5 +71,3 @@ if (mysqli_stmt_execute($stmt)) {
 mysqli_stmt_close($stmt);
 
 $arrContact = []
-
-header("location: index.php#about");
