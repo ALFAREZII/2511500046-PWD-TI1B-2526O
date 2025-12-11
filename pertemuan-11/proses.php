@@ -15,7 +15,7 @@ $arrContact = [
   "pesan" => $_POST["txtPesan"] ?? ""
 ];
 
-$errors - [];
+$errors = [];
 
 if ($nama === '') {
     $errors[] = 'Nama wajib diisi.';
