@@ -72,6 +72,4 @@ mysqli_stmt_close($stmt);
 
 $arrContact = []
 
-$_SESSION["biodata"] = $arrBiodata;
-
 header("location: index.php#about");
