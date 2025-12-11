@@ -72,7 +72,6 @@ mysqli_stmt_close($stmt);
 
 $arrContact = []
 
-$arrBiodata = [
   "nim" => $_POST["txtNim"] ?? "",
   "nama" => $_POST["txtNmLengkap"] ?? "",
   "tempat" => $_POST["txtT4Lhr"] ?? "",
@@ -83,7 +82,7 @@ $arrBiodata = [
   "ortu" => $_POST["txtNmOrtu"] ?? "",
   "kakak" => $_POST["txtNmKakak"] ?? "",
   "adik" => $_POST["txtNmAdik"] ?? ""
-];
+
 $_SESSION["biodata"] = $arrBiodata;
 
 header("location: index.php#about");
