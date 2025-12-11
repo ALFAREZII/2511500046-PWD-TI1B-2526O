@@ -8,15 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     redirect_ke('index.php#contact');
 }
 
-function bersihkan($data) {
+function ($data) {
     $data = trim($data);
     $data = stripslashes($data); 
     $data = htmlspecialchars($data); 
     return $data;
 }
-$nama = bersihkan($_POST['txtNama'] ?? '');
-$email = bersihkan($_POST['txtEmail'] ?? '');
-$pesan = bersihkan($_POST['txtPesan'] ?? '');
+$nama = ($_POST['txtNama'] ?? '');
+$email = ($_POST['txtEmail'] ?? '');
+$pesan = ($_POST['txtPesan'] ?? '');
 
 $errors = [];
 
