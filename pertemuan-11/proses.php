@@ -42,6 +42,36 @@ if (!empty($errors)) {
     redirect_ke('index.php#contact');
 }
 
+$sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
+$stmt = mysqli_prepare($conn, $sql);
+
+if ( ! $stmt ) {
+    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
+    redirect_ke('index.php#contact');
+}
+
+mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
+
+if (mysqli_stmt_execute($stmt)) {
+    unset($_SESSION['old']);
+    $_SESSION['flash_sukses'] = 'Terima kasih, data Anda sudah tersimpan.';
+    redirect_ke('index.php#contact');
+} else {
+    $_SESSION['old'] = [
+        'nama'  => $nama,
+        'email' => $email,
+        'pesan' => $pesan,
+    ];
+
+    $_SESSION['flash_error'] = 'Data gagal disimpan. Silakan coba lagi.';
+    redirect_ke('index.php#contact');
+}
+
+#tutup statement
+mysqli_stmt_close($stmt);
+
+$arrContact = []
+
 $_SESSION["contact"] = $arrContact;
 
 $arrBiodata = [
