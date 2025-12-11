@@ -1,22 +1,16 @@
 <?php
 session_start();
-require_once 'koneksi.php';
-require_once 'fungsi.php';
+require_once __DIR__ . '/koneksi.php';
+require_once __DIR__ . '/fungsi.php';
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $_SESSION['flash_error'] = 'Akses tidak valid.';
     redirect_ke('index.php#contact');
 }
 
-function ($data) {
-    $data = trim($data);
-    $data = stripslashes($data); 
-    $data = htmlspecialchars($data); 
-    return $data;
-}
-$nama = ($_POST['txtNama'] ?? '');
-$email = ($_POST['txtEmail'] ?? '');
-$pesan = ($_POST['txtPesan'] ?? '');
+$nama   = bersihkan($_POST['txtNama'] ?? '');
+$email  = bersihkan($_POST['txtEmail'] ?? '');
+$pesan  = bersihkan($_POST['txtPesan'] ?? '');
 
 $errors = [];
 
@@ -48,11 +42,9 @@ if (!empty($errors)) {
 $sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql);
 
-if ( ! $stmt ) {
-    // Tambahkan detail error dari koneksi untuk debugging
-    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal). Detail SQL: ' . $conn->error;
-    header('Location: index.php#contact');
-    exit;
+if (!$stmt) {
+    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
+    redirect_ke('index.php#contact');
 }
 
 mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
