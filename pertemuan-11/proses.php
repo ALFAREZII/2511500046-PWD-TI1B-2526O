@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once _DIR_ . '/fungsi.php';
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $_SESSION['flash_error'] = 'Akses tidak valid.';
