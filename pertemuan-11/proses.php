@@ -72,8 +72,6 @@ mysqli_stmt_close($stmt);
 
 $arrContact = []
 
-$_SESSION["contact"] = $arrContact;
-
 $arrBiodata = [
   "nim" => $_POST["txtNim"] ?? "",
   "nama" => $_POST["txtNmLengkap"] ?? "",
