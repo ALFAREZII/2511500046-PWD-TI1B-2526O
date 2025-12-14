@@ -50,6 +50,7 @@ INSERT INTO `tbl_tamu` (`cid`, `cnama`, `cemail`, `cpesan`, `dcreated`) VALUES
 --
 ALTER TABLE `tbl_tamu`
   ADD PRIMARY KEY (`cid`);
+  ADD COLUMN dcreated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
