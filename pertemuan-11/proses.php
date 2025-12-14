@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 $nama   = bersihkan($_POST['txtNama'] ?? '');
 $email  = bersihkan($_POST['txtEmail'] ?? '');
 $pesan  = bersihkan($_POST['txtPesan'] ?? '');
+$captcha = bersihkan($_POST['txtCaptcha'] ?? '');
 
 $captcha_input = bersihkan($_POST['txtCaptcha'] ?? '');
 $captcha_answer = 5; // Jawaban untuk 2 + 3 = 5
@@ -40,6 +41,7 @@ if (!empty($errors)) {
         'nama'  => $nama,
         'email' => $email,
         'pesan' => $pesan,
+        'captcha' => $captcha,
     ];
 
     $_SESSION['flash_error'] = implode('<br>', $errors);
