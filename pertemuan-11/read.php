@@ -19,6 +19,6 @@ $no = 1;
         <td><?= htmlspecialchars($row['cnama']); ?></td>
         <td><?= htmlspecialchars($row['cemail']); ?></td>
         <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
-       
+        <td><?= $row['dcreated']; ?></td> </tr>
 <?php endwhile; ?>
 </table>
