@@ -22,6 +22,10 @@ if ($nama == '') {
     $errors[] = 'Nama wajib diisi.';
 }
 
+elseif (strlen($nama) < 3) { 
+    $errors[] = 'Nama minimal 3 karakter.';
+}
+
 if ($email == '') {
     $errors[] = 'Email wajib diisi.';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -31,6 +35,11 @@ if ($email == '') {
 if ($pesan == '') {
     $errors[] = 'Pesan wajib diisi.';
 }
+
+elseif (strlen($pesan) < 10) { 
+    $errors[] = 'Pesan minimal 10 karakter.';
+}
+
 
 if ($captcha_input != $captcha_answer) {
     $errors[] = 'Jawaban CAPTCHA salah. Silakan hitung 2 + 3 lagi haha.';
