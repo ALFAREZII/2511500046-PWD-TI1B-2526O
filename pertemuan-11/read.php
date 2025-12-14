@@ -11,7 +11,7 @@ $no = 1;
         <th>Nama</th>
         <th>Email</th>
         <th>Pesan</th>
-        <th>Created At</th> </tr>
+        </tr>
 
 <?php while ($row = mysqli_fetch_assoc($q)): ?>
     <tr>
