@@ -14,7 +14,7 @@ $pesan  = bersihkan($_POST['txtPesan'] ?? '');
 $captcha = bersihkan($_POST['txtCaptcha'] ?? '');
 
 $captcha_input = bersihkan($_POST['txtCaptcha'] ?? '');
-$captcha_answer = 5; // Jawaban untuk 2 + 3 = 5
+$captcha_answer = 67; // Jawaban untuk 2 + 3 = 5
 
 $errors = [];
 
