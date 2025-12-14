@@ -31,7 +31,6 @@ USE `db_pwd2025`;
 --
 
 CREATE TABLE `tbl_tamu` (
-  `No` int(11) NOT NULL,
   `cid` int(11) NOT NULL,
   `cnama` varchar(100) COLLATE utf16_bin DEFAULT NULL,
   `cemail` varchar(100) COLLATE utf16_bin DEFAULT NULL,
