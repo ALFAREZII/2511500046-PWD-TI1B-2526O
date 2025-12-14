@@ -32,7 +32,7 @@ CREATE TABLE `tbl_tamu` (
   `cnama` varchar(100) DEFAULT NULL,
   `cemail` varchar(100) DEFAULT NULL,
   `cpesan` text,
-  `dcreated` datetime NULL DEFAULT CURRENT_TIMESTAMP
+  `dcreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
