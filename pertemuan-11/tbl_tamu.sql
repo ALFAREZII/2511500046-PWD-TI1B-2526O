@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 11 Des 2025 pada 09.48
--- Versi server: 5.7.33
--- Versi PHP: 7.4.19
+-- Generation Time: Dec 04, 2025 at 04:48 AM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
