@@ -12,6 +12,9 @@ $nama   = bersihkan($_POST['txtNama'] ?? '');
 $email  = bersihkan($_POST['txtEmail'] ?? '');
 $pesan  = bersihkan($_POST['txtPesan'] ?? '');
 
+$captcha_input = bersihkan($_POST['txtCaptcha'] ?? '');
+$captcha_answer = 5; // Jawaban untuk 2 + 3 = 5
+
 $errors = [];
 
 if ($nama == '') {
@@ -26,6 +29,10 @@ if ($email == '') {
 
 if ($pesan == '') {
     $errors[] = 'Pesan wajib diisi.';
+}
+
+if ($captcha_input != $captcha_answer) {
+    $errors[] = 'Jawaban CAPTCHA salah. Silakan hitung 2 + 3 lagi haha.';
 }
 
 if (!empty($errors)) {
