@@ -146,6 +146,11 @@ require_once __DIR__ . '/fungsi.php';
         value="<?= isset($old['email']) ? htmlspecialchars($old['email']) : '' ?>">
 </label>
 
+<label for="txtCaptcha"><span>Buktikan Anda bukan robot (2 + 3 = ?):</span>
+          <input type="number" id="txtCaptcha" name="txtCaptcha" placeholder="Masukkan jawaban"
+          required value="<?= isset($old['captcha']) ? htmlspecialchars($old['captcha']) : '' ?>">
+        </label>
+
 <label for="txtPesan"><span>Pesan Anda:</span>
     <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..."
         required><?= isset($old['pesan']) ? htmlspecialchars($old['pesan']) : '' ?></textarea>
