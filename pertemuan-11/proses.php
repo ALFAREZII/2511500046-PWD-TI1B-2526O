@@ -42,7 +42,7 @@ elseif (strlen($pesan) < 10) {
 
 
 if ($captcha_input != $captcha_answer) {
-    $errors[] = 'Jawaban CAPTCHA salah. Silakan hitung 2 + 3 lagi haha.';
+    $errors[] = 'Jawaban CAPTCHA salah. Silakan hitung 59 - 34 + 44 - 2 lagi haha.';
 }
 
 if (!empty($errors)) {
