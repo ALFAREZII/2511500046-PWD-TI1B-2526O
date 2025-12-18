@@ -34,3 +34,14 @@ if (!$row) {
 $nama = $row['cnama'] ?? '';
 $email = $row['cemail'] ?? '';
 $pesan = $row['cpesan'] ?? '';
+
+$flash_error = $_SESSION['flash_error'] ?? '';
+$old = $_SESSION['old'] ?? [];
+unset($_SESSION['flash_error'], $_SESSION['old']);
+
+if (!empty($old)) {
+    $nama  = $old['nama'] ?? $nama;
+    $email = $old['email'] ?? $email;
+    $pesan = $old['pesan'] ?? $pesan;
+}
+?>
