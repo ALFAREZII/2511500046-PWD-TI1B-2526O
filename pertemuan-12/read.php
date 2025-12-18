@@ -16,7 +16,7 @@ $no = 1;
         <th>Created At</th> 
     </tr>
     <?php $i = 1; ?>
-    <?php while ($row = mysqli_fetch_assoc($q)): ?>
+    <?php while ($row = mysqli_fetch_assoc($q)); ?>
         <tr>
             <td><?= $i++ ?></td>
             <td><a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a></td>
@@ -31,3 +31,5 @@ $no = 1;
         <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
         <td><?= $row['dcreated']; ?></td> </tr>
 <?php endwhile; ?>
+
+</table>
