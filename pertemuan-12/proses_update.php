@@ -87,7 +87,7 @@ mysqli_stmt_bind_param($stmt, "sssi", $nama, $email, $pesan, $cid);
 if (mysqli_stmt_execute($stmt)) { 
     unset($_SESSION['old']);
  
-    $_SESSION['flash_sukses'] = 'Terima kasih, data Anda sudah diperbaharui.';
+    $_SESSION['flash_sukses'] = 'Terima kasih, data Anda sudah diperbaharui cihuyyyy.';
     redirect_ke('read.php'); 
 } else { 
     $_SESSION['old'] = [
