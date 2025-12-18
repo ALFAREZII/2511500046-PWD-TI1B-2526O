@@ -2,3 +2,4 @@
 
 <ol>
   <li>Mengcopy</li>
+  <li>Penambahan EDIT di AKSII<li>
