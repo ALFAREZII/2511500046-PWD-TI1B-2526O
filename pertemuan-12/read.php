@@ -32,19 +32,23 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
 <?php endif; ?>
 
 <table border="1" cellpadding="8" cellspacing="0">
-    <tr>
-        <th>No</th>
-        <th>Aksi</th>
-        <th>ID</th>
-        <th>Nama</th>
-        <th>Email</th>
-        <th>Pesan</th>
-        <th>Created At</th>
-    </tr>
+<tr>
+    <th>No</th>
+    <th>Aksi</th>
+    <th>ID</th>
+    <th>Nama</th>
+    <th>Email</th>
+    <th>Pesan</th>
+    <th>Created At</th>
+</tr>
 
-    <?php while ($row = mysqli_fetch_assoc($q)): ?>
+<?php 
+// Gunakan variabel $no yang sudah didefinisikan di baris 6
+while ($row = mysqli_fetch_assoc($q)): 
+?>
     <tr>
         <td><?= $no++; ?></td>
+        <td>
             <a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a>
         </td>
         <td><?= $row['cid']; ?></td>
@@ -53,5 +57,6 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
         <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
         <td><?= $row['dcreated']; ?></td>
     </tr>
-    <?php endwhile; ?>
+<?php endwhile; ?>
+
 </table>
