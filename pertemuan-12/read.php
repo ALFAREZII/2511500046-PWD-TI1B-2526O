@@ -44,8 +44,7 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
 
     <?php while ($row = mysqli_fetch_assoc($q)): ?>
     <tr>
-        <td><?= $no++; ?></td>
-        <td>
+        <td><?= $no++; ?></td> <td>
             <a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a>
         </td>
         <td><?= $row['cid']; ?></td>
