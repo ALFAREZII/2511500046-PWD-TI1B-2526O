@@ -43,7 +43,7 @@ if ($pesan === '') {
 }
 
 if ($captcha === '') {
-    $errors[] = 'Pertanyaan wajib diisi.';
+    $errors[] = 'Pertanyaan wajib diisi.'
 }
 
 if (mb_strlen($nama) < 3) {
