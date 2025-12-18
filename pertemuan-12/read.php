@@ -31,4 +31,5 @@ $no = 1;
         <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
         <td><?= $row['dcreated']; ?></td> </tr>
 <?php endwhile; ?>
-</table>
+
+<table>
