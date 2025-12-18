@@ -5,6 +5,7 @@ require 'fungsi.php';
 
 $sql = "SELECT * FROM tbl_tamu ORDER BY cid DESC";
 $q = mysqli_query($conn, $sql);
+
 $no = 1;
 
 if (!$q) {
@@ -57,7 +58,7 @@ while ($row = mysqli_fetch_assoc($q)):
         <td><?= htmlspecialchars($row['cnama']); ?></td>
         <td><?= htmlspecialchars($row['cemail']); ?></td>
         <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
-        <td><?= $row['dcreated']; ?></td>
+        <td><?= $row['dcreated_at']; ?></td>
     </tr>
 <?php endwhile; ?>
 
