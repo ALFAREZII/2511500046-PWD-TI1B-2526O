@@ -31,8 +31,6 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
     </div>
 <?php endif; ?>
 
-?>
-
 <table border="1" cellpadding="8" cellspacing="0">
     <tr>
         <th>No</th>
