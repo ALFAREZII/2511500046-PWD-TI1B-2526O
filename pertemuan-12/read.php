@@ -22,7 +22,7 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
 
 <?php if (!empty($flash_sukses)): ?>
     <div style="padding:10px; margin-bottom:10px;
-        background:#d4edda; color:#155724; border-radius:6px;"
+        background:#d4edda; color:#155724; border-radius:6px;">
         <?= $flash_sukses; ?>
     </div>
 <?php endif; ?>
