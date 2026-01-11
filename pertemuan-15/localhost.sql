@@ -26,22 +26,28 @@ USE `db_pwd2025`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tamu`
+-- Table structure for table `tbl_ondemande`
 --
 
-CREATE TABLE `tbl_tamu` (
-  `cid` int NOT NULL,
-  `cnama` varchar(100) DEFAULT NULL,
-  `cemail` varchar(100) DEFAULT NULL,
-  `cpesan` text,
+CREATE TABLE `tbl_ondemande` (
+  `cNIM` int NOT NULL,
+  `cnamalengkap` varchar(100) DEFAULT NULL,
+  `ctempatlahir` varchar(100) DEFAULT NULL,
+  `ctanggallahir` varchar(100) DEFAULT NULL,
+  `cHobi` varchar(100) DEFAULT NULL,
+  `cpasangan` varchar(100) DEFAULT NULL,
+  `cpekerjaan` varchar(100) DEFAULT NULL,
+  `cnamaorangtua` varchar(100) DEFAULT NULL,
+  `cnamakakak` varchar(100) DEFAULT NULL,
+  `cnamaadik` varchar(100) DEFAULT NULL,
   `dcreated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `tbl_tamu`
+-- Dumping data for table `tbl_ondemande`
 --
 
-INSERT INTO `tbl_tamu` (`cid`, `cnama`, `cemail`, `cpesan`, `dcreated_at`) VALUES
+INSERT INTO `tbl_ondemande` (`cNIM`, `cnamalengkap`, `ctangallahir`, `cHobi`, `cpasangan` , `cpekerjaan` , `cnamaorangtua` , `cnamakakak` , `cnamaadik` `dcreated_at`) VALUES
 (20, 'Nur Faddddd', 'a@gmail.com', 'sadadas faedfasd', '2025-12-24 12:21:52'),
 (21, 'nicolas lim', 'sada@i.com', 'kskakds a da', '2025-12-24 12:22:04');
 
@@ -50,20 +56,20 @@ INSERT INTO `tbl_tamu` (`cid`, `cnama`, `cemail`, `cpesan`, `dcreated_at`) VALUE
 --
 
 --
--- Indexes for table `tbl_tamu`
+-- Indexes for table `tbl_ondemande`
 --
-ALTER TABLE `tbl_tamu`
-  ADD PRIMARY KEY (`cid`);
+ALTER TABLE `tbl_ondemande`
+  ADD PRIMARY KEY (`cNIM`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `tbl_tamu`
+-- AUTO_INCREMENT for table `tbl_ondemande`
 --
-ALTER TABLE `tbl_tamu`
-  MODIFY `cid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+ALTER TABLE `tbl_ondemande`
+  MODIFY `cNIM` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
