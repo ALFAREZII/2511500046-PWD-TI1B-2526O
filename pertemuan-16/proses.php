@@ -81,5 +81,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Kode asli Anda:
     header("location: index.php#about");
     exit();
-}
 ?>
