@@ -3,7 +3,6 @@ session_start();
 require __DIR__ . './koneksi.php';
 require_once __DIR__ . '/fungsi.php';
 
-session_start();
 // 1. Panggil koneksi database
 include 'koneksi.php'; // Pastikan file ini ada dan terhubung ke DB
 
