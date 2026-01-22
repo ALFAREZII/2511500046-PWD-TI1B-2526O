@@ -108,3 +108,38 @@ $arrBiodata = [
 $_SESSION["biodata"] = $arrBiodata;
 
 header("location: index.php#about");
+
+if (empty($nama) || empty($alamat)) {
+        $_SESSION['pesan'] = "Nama dan Alamat wajib diisi!";
+        $_SESSION['tipe']  = "error";
+    } else {
+        // 4. INSERT KE DATABASE
+        try {
+            // Sesuaikan 'nama_tabel' dengan tabel database Anda
+            $sql = "INSERT INTO biodata_tabel 
+                    (kodepen, nama, alamat, tanggal, hobi, slta, pekerjaan, ortu, pacar, mantan) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            $stmt = $koneksi->prepare($sql);
+            $stmt->execute([
+                $kodepen, $nama, $alamat, $tanggal, $hobi, 
+                $slta, $pekerjaan, $ortu, $pacar, $mantan
+            ]);
+
+            $_SESSION['pesan'] = "Data berhasil disimpan ke Database!";
+            $_SESSION['tipe']  = "success";
+
+        } catch (PDOException $e) {
+            $_SESSION['pesan'] = "Gagal menyimpan: " . $e->getMessage();
+            $_SESSION['tipe']  = "error";
+        }
+    }
+
+    // 5. SIMPAN KE SESSION (Agar bisa ditampilkan di halaman depan)
+    $_SESSION["biodata"] = $arrBiodata;
+
+    // 6. REDIRECT (KONSEP PRG)
+    // Kode asli Anda:
+    header("location: index.php#about");
+    exit();
+?>
