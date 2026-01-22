@@ -9,19 +9,28 @@ include 'koneksi.php'; // Pastikan file ini ada dan terhubung ke DB
 // Cek apakah tombol kirim ditekan (optional tapi disarankan)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 2. SANITASI DATA (PENTING!)
-    // Ubah $_POST langsung menjadi variabel yang sudah dibersihkan
-    // htmlspecialchars mencegah kode HTML/Script berbahaya masuk (XSS)
-    $kodepen    = htmlspecialchars($_POST['txtKodePen'] ?? '');
-    $nama       = htmlspecialchars($_POST['txtNmPengunjung'] ?? '');
-    $alamat     = htmlspecialchars($_POST['txtAlRmh'] ?? '');
-    $tanggal    = htmlspecialchars($_POST['txtTglKunjungan'] ?? '');
-    $hobi       = htmlspecialchars($_POST['txtHobi'] ?? '');
-    $slta       = htmlspecialchars($_POST['txtAsalSMA'] ?? '');
-    $pekerjaan  = htmlspecialchars($_POST['txtKerja'] ?? '');
-    $ortu       = htmlspecialchars($_POST['txtNmOrtu'] ?? '');
-    $pacar      = htmlspecialchars($_POST['txtNmPacar'] ?? '');
-    $mantan     = htmlspecialchars($_POST['txtNmMantan'] ?? '');
+    $sql = "INSERT INTO tabel_biodata (kodepen, nama, alamat, tanggal, hobi, slta, pekerjaan, ortu, pacar, mantan) 
+            VALUES (:kodepen, :nama, :alamat, :tanggal, :hobi, :slta, :pekerjaan, :ortu, :pacar, :mantan)";
+    
+    $stmt = $koneksi->prepare($sql); // Baris 53 sekarang akan berfungsi
+    
+    // Binding data
+    $stmt->execute([
+        ':kodepen' => $_POST['txtKodePen'],
+        ':nama'    => $_POST['txtNmPengunjung'],
+        ':alamat'  => $_POST['txtAlRmh'],
+        ':tanggal' => $_POST['txtTglKunjungan'],
+        ':hobi'    => $_POST['txtHobi'],
+        ':slta'    => $_POST['txtAsalSMA'],
+        ':pekerjaan' => $_POST['txtKerja'],
+        ':ortu'    => $_POST['txtNmOrtu'],
+        ':pacar'   => $_POST['txtNmPacar'],
+        ':mantan'  => $_POST['txtNmMantan']
+    ]);
+
+    header("location: index.php#about");
+    exit();
+}
 
     // Masukkan data bersih ke array (seperti kode Anda)
     $arrBiodata = [
