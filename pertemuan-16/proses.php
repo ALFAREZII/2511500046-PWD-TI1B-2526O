@@ -81,4 +81,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Kode asli Anda:
     header("location: index.php#about");
     exit();
+
+    // Ambil tanggal dari POST
+$tanggal_input = $_POST['txtTglKunjungan'] ?? '';
+
+// Ubah format dari 1/1/2022 menjadi 2022-01-01 agar diterima MySQL
+$tanggal_fixed = date('Y-m-d', strtotime(str_replace('/', '-', $tanggal_input)));
+
+// Masukkan ke dalam array untuk execute
+$stmt->execute([
+    ':kodepen' => $_POST['txtKodePen'],
+    ':nama'    => $_POST['txtNmPengunjung'],
+    ':alamat'  => $_POST['txtAlRmh'],
+    ':tanggal' => $tanggal_fixed, // Gunakan variabel yang sudah diperbaiki
+    ':hobi'    => $_POST['txtHobi'],
+    // ... sisa kolom lainnya ...
+]);
+
 ?>
