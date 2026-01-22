@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = ""; // Kosongkan jika menggunakan Laragon/XAMPP default
-$db   = "nama_database_anda"; // Ganti dengan nama database Anda
+$db   = "db_pwd2025"; // Ganti dengan nama database Anda
 
 try {
     // Menggunakan PDO agar sesuai dengan fungsi ->prepare() di kode Anda
