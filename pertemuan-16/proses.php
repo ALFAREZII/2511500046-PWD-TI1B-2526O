@@ -3,61 +3,138 @@ session_start();
 require __DIR__ . './koneksi.php';
 require_once __DIR__ . '/fungsi.php';
 
-// --- BAGIAN 1: PROSES KONTAK KAMI ---
-// Pastikan tombol di form kontak diberi name="btnKontak"
-if (isset($_POST['btnKontak'])) {
-    $nama    = bersihkan($_POST['txtNama'] ?? '');
-    $email   = bersihkan($_POST['txtEmail'] ?? '');
-    $pesan   = bersihkan($_POST['txtPesan'] ?? '');
-    $captcha = bersihkan($_POST['txtCaptcha'] ?? '');
-
-    $errors = [];
-    if ($captcha !== "5") { $errors[] = "Captcha salah."; }
-    // ... tambahkan validasi lainnya seperti di kode Anda ...
-
-    if (!empty($errors)) {
-        $_SESSION['flash_error'] = implode('<br>', $errors);
-        redirect_ke('index.php#contact');
-        exit;
-    }
-
-    $sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
-        if (mysqli_stmt_execute($stmt)) {
-            $_SESSION['flash_sukses'] = "Pesan berhasil terkirim!";
-            redirect_ke('index.php#contact');
-        } else {
-            $_SESSION['flash_error'] = "Gagal simpan ke database.";
-            redirect_ke('index.php#contact');
-        }
-        mysqli_stmt_close($stmt);
-    }
-    exit;
+#cek method form, hanya izinkan POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  $_SESSION['flash_error'] = 'Akses tidak valid.';
+  redirect_ke('index.php#contact');
 }
 
-// --- BAGIAN 2: PROSES BIODATA PENGUNJUNG ---
-// Pastikan tombol di form biodata diberi name="btnBiodata"
-if (isset($_POST['btnBiodata'])) {
-    // Ambil data sesuai atribut 'name' di form HTML Anda
-    $arrBiodata = [
-        "kodepen"  => $_POST["txtKodePen"] ?? "",
-        "nama"     => $_POST["txtNmPengunjung"] ?? "",
-        "alamat"   => $_POST["txtAlRmh"] ?? "",
-        "tanggal"  => $_POST["txtTglKunjungan"] ?? "",
-        "hobi"     => $_POST["txtHobi"] ?? "",
-        "slta"     => $_POST["txtAsalSMA"] ?? "",
-        "pekerjaan"=> $_POST["txtKerja"] ?? "",
-        "ortu"     => $_POST["txtNmOrtu"] ?? "",
-        "pacar"    => $_POST["txtNmPacar"] ?? "",
-        "mantan"   => $_POST["txtNmMantan"] ?? ""
-    ];
+#ambil dan bersihkan nilai dari form
+$nama  = bersihkan($_POST['txtNama']  ?? '');
+$email = bersihkan($_POST['txtEmail'] ?? '');
+$pesan = bersihkan($_POST['txtPesan'] ?? '');
+$captcha = bersihkan($_POST['txtCaptcha'] ?? '');
 
-    $_SESSION["biodata"] = $arrBiodata;
-    
-    // Alihkan ke halaman about untuk menampilkan hasilnya
-    header("Location: index.php#about");
-    exit;
+#Validasi sederhana
+$errors = []; #ini array untuk menampung semua error yang ada
+
+if ($nama === '') {
+  $errors[] = 'Nama wajib diisi.';
 }
+
+if ($email === '') {
+  $errors[] = 'Email wajib diisi.';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $errors[] = 'Format e-mail tidak valid.';
+}
+
+if ($pesan === '') {
+  $errors[] = 'Pesan wajib diisi.';
+}
+
+if ($captcha === '') {
+  $errors[] = 'Pertanyaan wajib diisi.';
+}
+
+if (mb_strlen($nama) < 3) {
+  $errors[] = 'Nama minimal 3 karakter.';
+}
+
+if (mb_strlen($pesan) < 10) {
+  $errors[] = 'Pesan minimal 10 karakter.';
+}
+
+if ($captcha!=="5") {
+  $errors[] = 'Jawaban '. $captcha.' captcha salah.';
+}
+
+/*
+kondisi di bawah ini hanya dikerjakan jika ada error, 
+simpan nilai lama dan pesan error, lalu redirect (konsep PRG)
+*/
+if (!empty($errors)) {
+  $_SESSION['old'] = [
+    'nama'  => $nama,
+    'email' => $email,
+    'pesan' => $pesan,
+    'captcha' => $captcha,
+  ];
+
+  $_SESSION['flash_error'] = implode('<br>', $errors);
+  redirect_ke('index.php#contact');
+}
+
+#menyiapkan query INSERT dengan prepared statement
+$sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
+$stmt = mysqli_prepare($conn, $sql);
+
+if (!$stmt) {
+  #jika gagal prepare, kirim pesan error ke pengguna (tanpa detail sensitif)
+  $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
+  redirect_ke('index.php#contact');
+}
+#bind parameter dan eksekusi (s = string)
+mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
+
+if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri pesan sukses
+  unset($_SESSION['old']);
+  $_SESSION['flash_sukses'] = 'Terima kasih, data Anda sudah tersimpan.';
+  redirect_ke('index.php#contact'); #pola PRG: kembali ke form / halaman home
+} else { #jika gagal, simpan kembali old value dan tampilkan error umum
+  $_SESSION['old'] = [
+    'nama'  => $nama,
+    'email' => $email,
+    'pesan' => $pesan,
+    'captcha' => $captcha,
+  ];
+  echo "Error: " . mysqli_stmt_error($stmt);
+exit;
+}
+#tutup statement
+mysqli_stmt_close($stmt);
+
+$arrBiodata = [
+  "kodepen" => $_POST["txtKodePen"] ?? "",
+  "nama" => $_POST["txtNmPengunjung"] ?? "",
+  "alamat" => $_POST["txtAlRmh"] ?? "",
+  "tanggal" => $_POST["txtTglKunjungan"] ?? "",
+  "hobi" => $_POST["txtHobi"] ?? "",
+  "slta" => $_POST["txtAsalSMA"] ?? "",
+  "pekerjaan" => $_POST["txtKerja"] ?? "",
+  "ortu" => $_POST["txtNmOrtu"] ?? "",
+  "pacar" => $_POST["txtNmPacar"] ?? "",
+  "mantan" => $_POST["txtNmMantan"] ?? ""
+];
+$_SESSION["biodata"] = $arrBiodata;
+
+header("location: index.php#about");
+
+// Cek apakah tombol 'Kirim' sudah ditekan
+if (isset($_POST['submit'])) {
+    
+    // Mengambil data dari form menggunakan fungsi mysqli_real_escape_string 
+    // (disarankan jika ingin dimasukkan ke database agar lebih aman)
+    
+    $kode_pengunjung  = $_POST['kode_pengunjung'];
+    $nama_pengunjung  = $_POST['nama_pengunjung'];
+    $alamat_rumah     = $_POST['alamat_rumah'];
+    $tanggal_kunjungan = $_POST['tanggal_kunjungan'];
+    $hobi             = $_POST['hobi'];
+    $asal_slta        = $_POST['asal_slta'];
+    $pekerjaan        = $_POST['pekerjaan'];
+    $nama_ortu        = $_POST['nama_ortu'];
+    $nama_pacar       = $_POST['nama_pacar'];
+    $nama_mantan      = $_POST['nama_mantan'];
+
+    // Contoh: Menampilkan data yang ditangkap
+    echo "<h2>Data Biodata Berhasil Diterima:</h2>";
+    echo "Kode Pengunjung: " . $kode_pengunjung . "<br>";
+    echo "Nama: " . $nama_pengunjung . "<br>";
+    echo "Pekerjaan: " . $pekerjaan . "<br>";
+    // ... tampilkan field lainnya sesuai kebutuhan ...
+
+} else {
+    // Jika mencoba akses langsung ke proses.php tanpa lewat form
+    header("Location: index.php"); 
+}
+?>
