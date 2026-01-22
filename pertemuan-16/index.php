@@ -105,6 +105,69 @@ require_once __DIR__ . '/fungsi.php';
     ?>
 
     <section id="about">
+      <div id="about">
+    <h2>Biodata Pengunjung</h2>
+    <hr>
+    
+    <?php if (isset($_SESSION["biodata"])): ?>
+        <?php $data = $_SESSION["biodata"]; ?>
+        <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse;">
+            <tr style="background-color: #f2f2f2;">
+                <th>Field</th>
+                <th>Keterangan</th>
+            </tr>
+            <tr>
+                <td><strong>Kode Pengunjung</strong></td>
+                <td><?= htmlspecialchars($data['kodepen']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Nama Pengunjung</strong></td>
+                <td><?= htmlspecialchars($data['nama']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Alamat Rumah</strong></td>
+                <td><?= htmlspecialchars($data['alamat']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Tanggal Kunjungan</strong></td>
+                <td><?= htmlspecialchars($data['tanggal']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Hobi</strong></td>
+                <td><?= htmlspecialchars($data['hobi']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Asal SLTA</strong></td>
+                <td><?= htmlspecialchars($data['slta']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Pekerjaan</strong></td>
+                <td><?= htmlspecialchars($data['pekerjaan']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Nama Orang Tua</strong></td>
+                <td><?= htmlspecialchars($data['ortu']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Nama Pacar</strong></td>
+                <td><?= htmlspecialchars($data['pacar']) ?></td>
+            </tr>
+            <tr>
+                <td><strong>Nama Mantan</strong></td>
+                <td><?= htmlspecialchars($data['mantan']) ?></td>
+            </tr>
+        </table>
+        
+        <br>
+        <form action="proses.php" method="POST">
+            <button type="submit" name="btnHapusBiodata" style="background-color: #f44336; color: white; padding: 5px 10px; border: none; cursor: pointer;">Hapus Data</button>
+        </form>
+
+    <?php else: ?>
+        <p>Belum ada data biodata yang diisi. Silakan isi form terlebih dahulu.</p>
+    <?php endif; ?>
+</div>
+
       <h2>Tentang Saya</h2>
       <?= tampilkanBiodata($fieldConfig, $biodata) ?>
     </section>
