@@ -3,113 +3,44 @@ session_start();
 require __DIR__ . './koneksi.php';
 require_once __DIR__ . '/fungsi.php';
 
-#cek method form, hanya izinkan POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  $_SESSION['flash_error'] = 'Akses tidak valid.';
-  redirect_ke('index.php#contact');
-}
+session_start();
+// 1. Panggil koneksi database
+include 'koneksi.php'; // Pastikan file ini ada dan terhubung ke DB
 
-#ambil dan bersihkan nilai dari form
-$nama  = bersihkan($_POST['txtNama']  ?? '');
-$email = bersihkan($_POST['txtEmail'] ?? '');
-$pesan = bersihkan($_POST['txtPesan'] ?? '');
-$captcha = bersihkan($_POST['txtCaptcha'] ?? '');
+// Cek apakah tombol kirim ditekan (optional tapi disarankan)
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-#Validasi sederhana
-$errors = []; #ini array untuk menampung semua error yang ada
+    // 2. SANITASI DATA (PENTING!)
+    // Ubah $_POST langsung menjadi variabel yang sudah dibersihkan
+    // htmlspecialchars mencegah kode HTML/Script berbahaya masuk (XSS)
+    $kodepen    = htmlspecialchars($_POST['txtKodePen'] ?? '');
+    $nama       = htmlspecialchars($_POST['txtNmPengunjung'] ?? '');
+    $alamat     = htmlspecialchars($_POST['txtAlRmh'] ?? '');
+    $tanggal    = htmlspecialchars($_POST['txtTglKunjungan'] ?? '');
+    $hobi       = htmlspecialchars($_POST['txtHobi'] ?? '');
+    $slta       = htmlspecialchars($_POST['txtAsalSMA'] ?? '');
+    $pekerjaan  = htmlspecialchars($_POST['txtKerja'] ?? '');
+    $ortu       = htmlspecialchars($_POST['txtNmOrtu'] ?? '');
+    $pacar      = htmlspecialchars($_POST['txtNmPacar'] ?? '');
+    $mantan     = htmlspecialchars($_POST['txtNmMantan'] ?? '');
 
-if ($nama === '') {
-  $errors[] = 'Nama wajib diisi.';
-}
+    // Masukkan data bersih ke array (seperti kode Anda)
+    $arrBiodata = [
+        "kodepen"   => $kodepen,
+        "nama"      => $nama,
+        "alamat"    => $alamat,
+        "tanggal"   => $tanggal,
+        "hobi"      => $hobi,
+        "slta"      => $slta,
+        "pekerjaan" => $pekerjaan,
+        "ortu"      => $ortu,
+        "pacar"     => $pacar,
+        "mantan"    => $mantan
+    ];
 
-if ($email === '') {
-  $errors[] = 'Email wajib diisi.';
-} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $errors[] = 'Format e-mail tidak valid.';
-}
-
-if ($pesan === '') {
-  $errors[] = 'Pesan wajib diisi.';
-}
-
-if ($captcha === '') {
-  $errors[] = 'Pertanyaan wajib diisi.';
-}
-
-if (mb_strlen($nama) < 3) {
-  $errors[] = 'Nama minimal 3 karakter.';
-}
-
-if (mb_strlen($pesan) < 10) {
-  $errors[] = 'Pesan minimal 10 karakter.';
-}
-
-if ($captcha!=="5") {
-  $errors[] = 'Jawaban '. $captcha.' captcha salah.';
-}
-
-/*
-kondisi di bawah ini hanya dikerjakan jika ada error, 
-simpan nilai lama dan pesan error, lalu redirect (konsep PRG)
-*/
-if (!empty($errors)) {
-  $_SESSION['old'] = [
-    'nama'  => $nama,
-    'email' => $email,
-    'pesan' => $pesan,
-    'captcha' => $captcha,
-  ];
-
-  $_SESSION['flash_error'] = implode('<br>', $errors);
-  redirect_ke('index.php#contact');
-}
-
-#menyiapkan query INSERT dengan prepared statement
-$sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
-$stmt = mysqli_prepare($conn, $sql);
-
-if (!$stmt) {
-  #jika gagal prepare, kirim pesan error ke pengguna (tanpa detail sensitif)
-  $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
-  redirect_ke('index.php#contact');
-}
-#bind parameter dan eksekusi (s = string)
-mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
-
-if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri pesan sukses
-  unset($_SESSION['old']);
-  $_SESSION['flash_sukses'] = 'Terima kasih, data Anda sudah tersimpan.';
-  redirect_ke('index.php#contact'); #pola PRG: kembali ke form / halaman home
-} else { #jika gagal, simpan kembali old value dan tampilkan error umum
-  $_SESSION['old'] = [
-    'nama'  => $nama,
-    'email' => $email,
-    'pesan' => $pesan,
-    'captcha' => $captcha,
-  ];
-  $_SESSION['flash_error'] = 'Data gagal disimpan. Silakan coba lagi.';
-  redirect_ke('index.php#contact');
-}
-#tutup statement
-mysqli_stmt_close($stmt);
-
-$arrBiodata = [
-  "kodepen" => $_POST["txtKodePen"] ?? "",  
-  "nama" => $_POST["txtNmPengunjung"] ?? "",
-  "alamat" => $_POST["txtAlRmh"] ?? "",
-  "tanggal" => $_POST["txtTglKunjungan"] ?? "",
-  "hobi" => $_POST["txtHobi"] ?? "",
-  "slta" => $_POST["txtAsalSMA"] ?? "",
-  "pekerjaan" => $_POST["txtKerja"] ?? "",
-  "ortu" => $_POST["txtNmOrtu"] ?? "",
-  "pacar" => $_POST["txtNmPacar"] ?? "",
-  "mantan" => $_POST["txtNmMantan"] ?? ""
-];
-$_SESSION["biodata"] = $arrBiodata;
-
-header("location: index.php#about");
-
-if (empty($nama) || empty($alamat)) {
+    // 3. VALIDASI SEDERHANA
+    // Contoh: Nama tidak boleh kosong
+    if (empty($nama) || empty($alamat)) {
         $_SESSION['pesan'] = "Nama dan Alamat wajib diisi!";
         $_SESSION['tipe']  = "error";
     } else {
@@ -142,33 +73,5 @@ if (empty($nama) || empty($alamat)) {
     // Kode asli Anda:
     header("location: index.php#about");
     exit();
-
-    $koneksi = mysqli_connect("localhost", "root", "", "nama_database_anda");
-
-// 2. Sanitasi & Ambil Data (Sesuai instruksi gambar pertama untuk keamanan)
-$kodepen    = mysqli_real_escape_string($koneksi, $_POST['txtKodePen'] ?? '');
-$nama       = mysqli_real_escape_string($koneksi, $_POST['txtNmPengunjung'] ?? '');
-$alamat     = mysqli_real_escape_string($koneksi, $_POST['txtAlRmh'] ?? '');
-$tanggal    = mysqli_real_escape_string($koneksi, $_POST['txtTglKunjungan'] ?? '');
-$hobi       = mysqli_real_escape_string($koneksi, $_POST['txtHobi'] ?? '');
-$slta       = mysqli_real_escape_string($koneksi, $_POST['txtAsalSMA'] ?? '');
-$pekerjaan  = mysqli_real_escape_string($koneksi, $_POST['txtKerja'] ?? '');
-$ortu       = mysqli_real_escape_string($koneksi, $_POST['txtNmOrtu'] ?? '');
-$pacar      = mysqli_real_escape_string($koneksi, $_POST['txtNmPacar'] ?? '');
-$mantan     = mysqli_real_escape_string($koneksi, $_POST['txtNmMantan'] ?? '');
-
-// 3. Query Insert ke Tabel
-$query = "INSERT INTO nama_tabel_anda 
-          (kodepen, nama, alamat, tanggal, hobi, slta, pekerjaan, ortu, pacar, mantan) 
-          VALUES ('$kodepen', '$nama', '$alamat', '$tanggal', '$hobi', '$slta', '$pekerjaan', '$ortu', '$pacar', '$mantan')";
-
-$simpan = mysqli_query($koneksi, $query);
-
-// 4. Logika Pesan (Agar tidak muncul "Gagal Disimpan")
-if ($simpan) {
-    $_SESSION['pesan_status'] = "Data berhasil disimpan!";
-} else {
-    $_SESSION['pesan_status'] = "Data gagal disimpan: " . mysqli_error($koneksi);
 }
-
 ?>
