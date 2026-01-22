@@ -107,4 +107,31 @@ $arrBiodata = [
 ];
 $_SESSION["biodata"] = $arrBiodata;
 
+<?php
+include 'koneksi.php';
+
+if (isset($_POST['kirim'])) {
+    // Ambil data dari form sesuai dengan atribut 'name'
+    $kodepen   = $_POST['kodepen'];
+    $nama      = $_POST['nama'];
+    $alamat    = $_POST['alamat'];
+    $tanggal   = $_POST['tanggal'];
+    $hobi      = $_POST['hobi'];
+    $slta      = $_POST['slta'];
+    $pekerjaan = $_POST['pekerjaan'];
+    $ortu      = $_POST['ortu'];
+    $pacar     = $_POST['pacar'];
+    $mantan    = $_POST['mantan'];
+
+    // Query untuk memasukkan data
+    $query = "INSERT INTO nama_tabel_anda (kodepen, nama, alamat, tanggal, hobi, slta, pekerjaan, ortu, pacar, mantan) 
+              VALUES ('$kodepen', '$nama', '$alamat', '$tanggal', '$hobi', '$slta', '$pekerjaan', '$ortu', '$pacar', '$mantan')";
+
+    if (mysqli_query($conn, $query)) {
+        echo "<script>alert('Data Berhasil Disimpan!'); window.location='index.html';</script>";
+    } else {
+        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+    }
+}
+
 header("location: index.php#about");
