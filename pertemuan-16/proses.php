@@ -108,3 +108,33 @@ $arrBiodata = [
 $_SESSION["biodata"] = $arrBiodata;
 
 header("location: index.php#about");
+
+// Cek apakah tombol 'Kirim' sudah ditekan
+if (isset($_POST['submit'])) {
+    
+    // Mengambil data dari form menggunakan fungsi mysqli_real_escape_string 
+    // (disarankan jika ingin dimasukkan ke database agar lebih aman)
+    
+    $kode_pengunjung  = $_POST['kode_pengunjung'];
+    $nama_pengunjung  = $_POST['nama_pengunjung'];
+    $alamat_rumah     = $_POST['alamat_rumah'];
+    $tanggal_kunjungan = $_POST['tanggal_kunjungan'];
+    $hobi             = $_POST['hobi'];
+    $asal_slta        = $_POST['asal_slta'];
+    $pekerjaan        = $_POST['pekerjaan'];
+    $nama_ortu        = $_POST['nama_ortu'];
+    $nama_pacar       = $_POST['nama_pacar'];
+    $nama_mantan      = $_POST['nama_mantan'];
+
+    // Contoh: Menampilkan data yang ditangkap
+    echo "<h2>Data Biodata Berhasil Diterima:</h2>";
+    echo "Kode Pengunjung: " . $kode_pengunjung . "<br>";
+    echo "Nama: " . $nama_pengunjung . "<br>";
+    echo "Pekerjaan: " . $pekerjaan . "<br>";
+    // ... tampilkan field lainnya sesuai kebutuhan ...
+
+} else {
+    // Jika mencoba akses langsung ke proses.php tanpa lewat form
+    header("Location: index.php"); 
+}
+?>
