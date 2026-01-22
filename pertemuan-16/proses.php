@@ -142,4 +142,33 @@ if (empty($nama) || empty($alamat)) {
     // Kode asli Anda:
     header("location: index.php#about");
     exit();
+
+    $koneksi = mysqli_connect("localhost", "root", "", "nama_database_anda");
+
+// 2. Sanitasi & Ambil Data (Sesuai instruksi gambar pertama untuk keamanan)
+$kodepen    = mysqli_real_escape_string($koneksi, $_POST['txtKodePen'] ?? '');
+$nama       = mysqli_real_escape_string($koneksi, $_POST['txtNmPengunjung'] ?? '');
+$alamat     = mysqli_real_escape_string($koneksi, $_POST['txtAlRmh'] ?? '');
+$tanggal    = mysqli_real_escape_string($koneksi, $_POST['txtTglKunjungan'] ?? '');
+$hobi       = mysqli_real_escape_string($koneksi, $_POST['txtHobi'] ?? '');
+$slta       = mysqli_real_escape_string($koneksi, $_POST['txtAsalSMA'] ?? '');
+$pekerjaan  = mysqli_real_escape_string($koneksi, $_POST['txtKerja'] ?? '');
+$ortu       = mysqli_real_escape_string($koneksi, $_POST['txtNmOrtu'] ?? '');
+$pacar      = mysqli_real_escape_string($koneksi, $_POST['txtNmPacar'] ?? '');
+$mantan     = mysqli_real_escape_string($koneksi, $_POST['txtNmMantan'] ?? '');
+
+// 3. Query Insert ke Tabel
+$query = "INSERT INTO nama_tabel_anda 
+          (kodepen, nama, alamat, tanggal, hobi, slta, pekerjaan, ortu, pacar, mantan) 
+          VALUES ('$kodepen', '$nama', '$alamat', '$tanggal', '$hobi', '$slta', '$pekerjaan', '$ortu', '$pacar', '$mantan')";
+
+$simpan = mysqli_query($koneksi, $query);
+
+// 4. Logika Pesan (Agar tidak muncul "Gagal Disimpan")
+if ($simpan) {
+    $_SESSION['pesan_status'] = "Data berhasil disimpan!";
+} else {
+    $_SESSION['pesan_status'] = "Data gagal disimpan: " . mysqli_error($koneksi);
+}
+
 ?>
