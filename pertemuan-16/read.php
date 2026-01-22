@@ -57,3 +57,35 @@
     </tr>
   <?php endwhile; ?>
 </table>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>No</th>
+    <th>Aksi</th>
+    <th>Kodepen</th>
+    <th>Nama</th>
+    <th>Alamat</th>
+    <th>Tanggal</th>
+    <th>Hobi</th>
+    <th>slta</th>
+    <th>pekerjaan</th>
+    <th>ortu</th>
+    <th>pacar</th>
+    <th>mantan</th>
+  </tr>
+  <?php $i = 1; ?>
+  <?php while ($row = mysqli_fetch_assoc($q)): ?>
+    <tr>
+      <td><?= $i++ ?></td>
+      <td>
+        <a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a>
+        <a onclick="return confirm('Hapus <?= htmlspecialchars($row['cnama']); ?>?')" href="proses_delete.php?cid=<?= (int)$row['cid']; ?>">Delete</a>
+      </td>
+      <td><?= $row['cid']; ?></td>
+      <td><?= htmlspecialchars($row['cnama']); ?></td>
+      <td><?= htmlspecialchars($row['cemail']); ?></td>
+      <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
+      <td><?= formatTanggal(htmlspecialchars($row['dcreated_at'])); ?></td>
+    </tr>
+  <?php endwhile; ?>
+</table>
