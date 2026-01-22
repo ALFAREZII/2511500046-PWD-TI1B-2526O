@@ -108,33 +108,3 @@ $arrBiodata = [
 $_SESSION["biodata"] = $arrBiodata;
 
 header("location: index.php#about");
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Jika tombol Kirim Biodata ditekan
-    if (isset($_POST['txtNmPengunjung'])) { // Ganti dengan nama tombol submit jika ada
-        $arrBiodata = [
-            "kodepen"   => $_POST["txtKodePen"] ?? "",
-            "nama"      => $_POST["txtNmPengunjung"] ?? "",
-            "alamat"    => $_POST["txtAlRmh"] ?? "",
-            "tanggal"   => $_POST["txtTglKunjungan"] ?? "",
-            "hobi"      => $_POST["txtHobi"] ?? "",
-            "slta"      => $_POST["txtAsalSMA"] ?? "",
-            "pekerjaan" => $_POST["txtKerja"] ?? "",
-            "ortu"      => $_POST["txtNmOrtu"] ?? "",
-            "pacar"     => $_POST["txtNmPacar"] ?? "",
-            "mantan"    => $_POST["txtNmMantan"] ?? ""
-        ];
-
-        $_SESSION["biodata"] = $arrBiodata;
-        header("Location: index.php#about");
-        exit;
-    }
-
-    // Tambahan: Logika untuk hapus data jika tombol hapus ditekan
-    if (isset($_POST['btnHapusBiodata'])) {
-        unset($_SESSION["biodata"]);
-        header("Location: index.php#about");
-        exit;
-    }
-}
-?>
