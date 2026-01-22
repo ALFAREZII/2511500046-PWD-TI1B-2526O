@@ -87,8 +87,8 @@ if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri pesa
     'pesan' => $pesan,
     'captcha' => $captcha,
   ];
-  $_SESSION['flash_error'] = 'Data gagal disimpan. Silakan coba lagi.';
-  redirect_ke('index.php#contact');
+  echo "Error: " . mysqli_stmt_error($stmt);
+exit;
 }
 #tutup statement
 mysqli_stmt_close($stmt);
